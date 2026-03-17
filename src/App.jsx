@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 /* ───────── BTS & ARMY Text Logos ───────── */
 
 function BTSLogo({ size = 40, glow = false }) {
-  return <span style={{ fontFamily:"'Playfair Display',serif", fontSize:size*0.45, fontWeight:900, color:"#BF94E4", letterSpacing:2, filter:glow?"drop-shadow(0 0 10px rgba(191,148,228,.5))":"none" }}>BTS</span>;
+  return <span style={{ fontFamily:"'Playfair Display',serif", fontSize:size*0.45, fontWeight:900, color:"#BF94E4", letterSpacing:2, filter:glow?"drop-shadow(0 0 10px rgba(191,148,228,.9))":"none" }}>BTS</span>;
 }
 
 function ARMYLogo({ size = 40, glow = false }) {
-  return <span style={{ fontFamily:"'Playfair Display',serif", fontSize:size*0.35, fontWeight:900, color:"#BF94E4", letterSpacing:2, filter:glow?"drop-shadow(0 0 10px rgba(191,148,228,.5))":"none" }}>ARMY</span>;
+  return <span style={{ fontFamily:"'Playfair Display',serif", fontSize:size*0.35, fontWeight:900, color:"#BF94E4", letterSpacing:2, filter:glow?"drop-shadow(0 0 10px rgba(191,148,228,.9))":"none" }}>ARMY</span>;
 }
 
 function BothLogos({ btsSize = 36, armySize = 36, gap = 16 }) {
@@ -95,12 +95,12 @@ const FINANCE_DATA = [
 /* ───────── components ───────── */
 
 function FloatingParticle({ delay, size, x }) {
-  return <div style={{ position:"absolute",width:size,height:size,borderRadius:"50%",background:"radial-gradient(circle,rgba(191,148,228,.6) 0%,transparent 70%)",left:`${x}%`,bottom:"-20px",animation:`floatUp ${8+Math.random()*6}s ease-in-out infinite`,animationDelay:`${delay}s`,pointerEvents:"none" }} />;
+  return <div style={{ position:"absolute",width:size,height:size,borderRadius:"50%",background:"radial-gradient(circle,rgba(191,148,228,.85) 0%,transparent 70%)",left:`${x}%`,bottom:"-20px",animation:`floatUp ${8+Math.random()*6}s ease-in-out infinite`,animationDelay:`${delay}s`,pointerEvents:"none" }} />;
 }
 
 function Tag({ children, variant = "stamp" }) {
   const m = {
-    "스탬프랠리":{ bg:"rgba(191,148,228,.2)",border:"rgba(191,148,228,.5)",text:"#BF94E4" },
+    "스탬프랠리":{ bg:"rgba(191,148,228,.2)",border:"rgba(191,148,228,.9)",text:"#BF94E4" },
     "사전예약":{ bg:"rgba(255,214,102,.15)",border:"rgba(255,214,102,.4)",text:"#FFD666" },
     "현장예약":{ bg:"rgba(255,180,100,.15)",border:"rgba(255,180,100,.4)",text:"#FFB464" },
     "예매필수":{ bg:"rgba(130,200,255,.15)",border:"rgba(130,200,255,.4)",text:"#82C8FF" },
@@ -131,7 +131,7 @@ function SectionTitle({ children, sub }) {
   return (
     <div style={{ marginBottom:40,textAlign:"center" }}>
       <h2 style={{ fontFamily:"'Playfair Display',serif",fontSize:"clamp(26px,5vw,42px)",fontWeight:700,color:"#fff",margin:0,lineHeight:1.2,letterSpacing:"-.5px" }}>{children}</h2>
-      {sub && <p style={{ fontFamily:"'Noto Sans KR',sans-serif",fontSize:12,color:"rgba(191,148,228,.65)",marginTop:10,letterSpacing:"3px",textTransform:"uppercase" }}>{sub}</p>}
+      {sub && <p style={{ fontFamily:"'Noto Sans KR',sans-serif",fontSize:12,color:"rgba(191,148,228,.85)",marginTop:10,letterSpacing:"3px",textTransform:"uppercase" }}>{sub}</p>}
       <div style={{ width:60,height:2,background:"linear-gradient(90deg,transparent,#BF94E4,transparent)",margin:"14px auto 0" }} />
     </div>
   );
@@ -148,7 +148,7 @@ function CountdownTimer({ target, label }) {
       {[{v:d,l:"DAYS"},{v:h,l:"HRS"},{v:m,l:"MIN"},{v:s,l:"SEC"}].map((u,i)=>(
         <div key={i} style={{ textAlign:"center" }}>
           <div style={{ fontFamily:"'Space Mono',monospace",fontSize:"clamp(20px,3.5vw,30px)",fontWeight:700,color:"#fff",background:"rgba(191,148,228,.08)",border:"1px solid rgba(191,148,228,.22)",borderRadius:8,padding:"6px 12px",minWidth:42 }}>{String(u.v).padStart(2,"0")}</div>
-          <div style={{ fontSize:8,color:"rgba(191,148,228,.55)",marginTop:3,letterSpacing:"2px",fontWeight:600 }}>{u.l}</div>
+          <div style={{ fontSize:8,color:"rgba(191,148,228,.9)",marginTop:3,letterSpacing:"2px",fontWeight:600 }}>{u.l}</div>
         </div>
       ))}
     </div>
@@ -178,12 +178,12 @@ function Accordion({ title, children, defaultOpen = false }) {
         display:"flex",alignItems:"center",justifyContent:"space-between",color:"#fff",
       }}>
         <span style={{ fontSize:13,fontWeight:600,color:"rgba(191,148,228,.85)" }}>{title}</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(191,148,228,.5)" strokeWidth="1.5" strokeLinecap="round"
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(191,148,228,.9)" strokeWidth="1.5" strokeLinecap="round"
           style={{ transform:open?"rotate(180deg)":"rotate(0)",transition:"transform .2s" }}>
           <path d="M3 5l4 4 4-4"/>
         </svg>
       </button>
-      {open && <div style={{ padding:"0 18px 16px",fontSize:12,color:"rgba(255,255,255,.38)",lineHeight:1.9 }}>{children}</div>}
+      {open && <div style={{ padding:"0 18px 16px",fontSize:12,color:"rgba(255,255,255,.9)",lineHeight:1.9 }}>{children}</div>}
     </div>
   );
 }
@@ -219,7 +219,7 @@ export default function App() {
         @keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:.5}90%{opacity:.08}100%{transform:translateY(-100vh) scale(.3);opacity:0}}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
         @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(191,148,228,.35)}50%{box-shadow:0 0 18px 4px rgba(191,148,228,.15)}}
-        @keyframes glow{0%,100%{border-color:rgba(191,148,228,.25)}50%{border-color:rgba(191,148,228,.5)}}
+        @keyframes glow{0%,100%{border-color:rgba(191,148,228,.25)}50%{border-color:rgba(191,148,228,.9)}}
         *{box-sizing:border-box;margin:0;padding:0}
         html{scroll-behavior:smooth}body{background:#08081a}
         .card-hover{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
@@ -246,7 +246,7 @@ export default function App() {
           <div style={{ display:"flex",gap:16,alignItems:"center",flexWrap:"wrap" }}>
             {SECTIONS.slice(1).map(s=>(
               <span key={s.id} className={`nav-link ${activeSection===s.id?"active":""}`} onClick={()=>scrollTo(s.id)}
-                style={{ fontSize:11,fontWeight:500,letterSpacing:"1px",color:activeSection===s.id?"#BF94E4":"rgba(255,255,255,.45)" }}>{s.label}</span>
+                style={{ fontSize:11,fontWeight:500,letterSpacing:"1px",color:activeSection===s.id?"#BF94E4":"rgba(255,255,255,.92)" }}>{s.label}</span>
             ))}
           </div>
         </div>
@@ -259,14 +259,14 @@ export default function App() {
           <div style={{ marginBottom:28 }}>
             <BothLogos btsSize={48} armySize={48} gap={20} />
           </div>
-          <div style={{ fontSize:11,letterSpacing:"6px",color:"rgba(191,148,228,.6)",fontWeight:600,marginBottom:22 }}>BTS THE CITY</div>
-          <h1 style={{ fontFamily:"'Playfair Display',serif",fontSize:"clamp(50px,11vw,108px)",fontWeight:900,lineHeight:.92,marginBottom:8,background:"linear-gradient(180deg,#fff 30%,rgba(191,148,228,.7) 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent" }}>ARIRANG</h1>
-          <div style={{ fontFamily:"'Space Mono',monospace",fontSize:"clamp(13px,2.5vw,18px)",fontWeight:400,letterSpacing:"10px",color:"rgba(255,255,255,.35)",marginBottom:40 }}>— SEOUL —</div>
-          <p style={{ fontSize:"clamp(14px,1.8vw,16px)",color:"rgba(255,255,255,.42)",maxWidth:460,margin:"0 auto 44px",lineHeight:1.9,fontWeight:300 }}>
+          <div style={{ fontSize:11,letterSpacing:"6px",color:"rgba(191,148,228,.85)",fontWeight:600,marginBottom:22 }}>BTS THE CITY</div>
+          <h1 style={{ fontFamily:"'Playfair Display',serif",fontSize:"clamp(50px,11vw,108px)",fontWeight:900,lineHeight:.92,marginBottom:8,background:"linear-gradient(180deg,#fff 30%,rgba(191,148,228,.9) 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent" }}>ARIRANG</h1>
+          <div style={{ fontFamily:"'Space Mono',monospace",fontSize:"clamp(13px,2.5vw,18px)",fontWeight:400,letterSpacing:"10px",color:"rgba(255,255,255,.9)",marginBottom:40 }}>— SEOUL —</div>
+          <p style={{ fontSize:"clamp(14px,1.8vw,16px)",color:"rgba(255,255,255,.92)",maxWidth:460,margin:"0 auto 44px",lineHeight:1.9,fontWeight:300 }}>
             도시 전체가 보랏빛으로 물드는 순간,<br/>방탄소년단의 새로운 여정을 함께 즐기는 마스터 가이드
           </p>
           <div style={{ marginBottom:20 }}>
-            <div style={{ fontSize:11,letterSpacing:"3px",color:"rgba(191,148,228,.5)",fontWeight:600,marginBottom:14 }}>사전 예약 오픈</div>
+            <div style={{ fontSize:11,letterSpacing:"3px",color:"rgba(191,148,228,.9)",fontWeight:600,marginBottom:14 }}>사전 예약 오픈</div>
             <CountdownTimer target={preReserve} />
           </div>
           <div style={{ marginTop:24,display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap" }}>
@@ -299,7 +299,7 @@ export default function App() {
       <section id="reservation" style={{ ...altBg }}>
         <div style={sec}>
           <SectionTitle sub="PRE-RESERVATION GUIDE">사전 예약 신청 안내</SectionTitle>
-          <p style={{ textAlign:"center",fontSize:13,color:"rgba(255,255,255,.45)",maxWidth:600,margin:"-20px auto 12px",lineHeight:1.8 }}>
+          <p style={{ textAlign:"center",fontSize:13,color:"rgba(255,255,255,.92)",maxWidth:600,margin:"-20px auto 12px",lineHeight:1.8 }}>
             예약은 위버스 줄서기 시스템을 통해 선착순으로 진행됩니다.<br/>
             예약 완료 후 입장 안내 사항을 반드시 확인해 주세요.
           </p>
@@ -316,11 +316,11 @@ export default function App() {
                 <Tag variant="스탬프랠리">스탬프랠리</Tag><Tag variant="사전예약">사전예약</Tag><Tag variant="NEW">예약 오픈 D-1</Tag>
               </div>
               <h3 style={{ fontSize:19,fontWeight:700,color:"#fff",marginBottom:6 }}>1. 숭례문 BTS 컴백 미디어 파사드</h3>
-              <div style={{ display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 14px",fontSize:13,color:"rgba(255,255,255,.5)",marginBottom:14,lineHeight:1.8 }}>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>행사 일정</span><span>2026.03.20 (금) 19:00~24:00</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>장소</span><span>숭례문</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>예약 오픈</span><span style={{ color:"#FFD666",fontWeight:600 }}>2026.03.18 (수) 15:00 KST</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>인원</span><span>1인 1명 신청 가능</span>
+              <div style={{ display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 14px",fontSize:13,color:"rgba(255,255,255,.92)",marginBottom:14,lineHeight:1.8 }}>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>행사 일정</span><span>2026.03.20 (금) 19:00~24:00</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>장소</span><span>숭례문</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>예약 오픈</span><span style={{ color:"#FFD666",fontWeight:600 }}>2026.03.18 (수) 15:00 KST</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>인원</span><span>1인 1명 신청 가능</span>
               </div>
               <div style={{ background:"rgba(191,148,228,.05)",borderRadius:10,padding:"14px 16px",marginBottom:14 }}>
                 <div style={{ fontSize:12,fontWeight:600,color:"rgba(191,148,228,.8)",marginBottom:8 }}>⏰ 숭례문 예약 오픈까지</div>
@@ -331,12 +331,12 @@ export default function App() {
                 <LinkButton href="https://www.google.com/maps/search/숭례문" icon="📍">구글 지도</LinkButton>
               </div>
               <Accordion title="📍 입장 안내 사항 (필독)">
-                <strong style={{ color:"rgba(255,255,255,.55)" }}>입장 확인 프로세스</strong><br/>
+                <strong style={{ color:"rgba(255,255,255,.9)" }}>입장 확인 프로세스</strong><br/>
                 1) 서울역 5번 출구 앞 예약 확인 부스에서 예약 확인<br/>
                 2) 위버스 예약 확인 페이지를 미리 준비<br/>
                 3) 예약 회차 기준 1시간 전부터 입장 확인 가능<br/>
                 ※ 60분 전 / 40분 전 / 20분 전 지정 대기 구역으로 이동<br/><br/>
-                <strong style={{ color:"rgba(255,255,255,.55)" }}>유의사항</strong><br/>
+                <strong style={{ color:"rgba(255,255,255,.9)" }}>유의사항</strong><br/>
                 • 1시간 이상 일찍 도착 시 대기열 진입 제한<br/>
                 • 사전 예약자만 입장 가능 (미예약자 현장 대기 불가)<br/>
                 • 대리 예약·양도 불가<br/>
@@ -347,7 +347,7 @@ export default function App() {
                 • 총 6개 구역 스탠딩 관람 (돗자리 사용 불가)<br/>
                 • 화장실 미설치 — 인근 공공화장실 이용<br/>
                 • 물품 보관 불가 — 인근 지하철 물품보관함 이용 권장<br/><br/>
-                <strong style={{ color:"rgba(255,255,255,.55)" }}>반입 불가 품목</strong><br/>
+                <strong style={{ color:"rgba(255,255,255,.9)" }}>반입 불가 품목</strong><br/>
                 A3 이상 가방·캐리어 / 500ml 이하 생수 외 음식물 / 대형 카메라·셀카봉·삼각대 / 드론 / 장우산 / 풍선 / 레이저·폭죽 / 동물 (의료보조동물 제외) / 바퀴 달린 이동수단 (휠체어 제외) / 화기류
               </Accordion>
             </div>
@@ -358,10 +358,10 @@ export default function App() {
                 <Tag variant="스탬프랠리">스탬프랠리</Tag><Tag variant="현장예약">현장예약</Tag>
               </div>
               <h3 style={{ fontSize:19,fontWeight:700,color:"#fff",marginBottom:6 }}>2. 러브 송 라운지</h3>
-              <div style={{ display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 14px",fontSize:13,color:"rgba(255,255,255,.5)",marginBottom:14,lineHeight:1.8 }}>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>행사 기간</span><span>2026.03.20 (금) ~ 03.22 (일) 매일 10:00~20:00</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>장소</span><span>여의도 한강공원 멀티 플라자</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>현장 예약</span><span style={{ color:"#FFB464",fontWeight:600 }}>2026.03.20 (금) 10:00 KST 현장 오픈</span>
+              <div style={{ display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 14px",fontSize:13,color:"rgba(255,255,255,.92)",marginBottom:14,lineHeight:1.8 }}>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>행사 기간</span><span>2026.03.20 (금) ~ 03.22 (일) 매일 10:00~20:00</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>장소</span><span>여의도 한강공원 멀티 플라자</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>현장 예약</span><span style={{ color:"#FFB464",fontWeight:600 }}>2026.03.20 (금) 10:00 KST 현장 오픈</span>
               </div>
               <div style={{ background:"rgba(255,180,100,.06)",borderRadius:8,padding:"10px 14px",fontSize:12,color:"rgba(255,180,100,.7)",marginBottom:14,lineHeight:1.6 }}>
                 ⚠️ 현장에서만 예약 가능합니다. 현장 내 설치된 배너를 확인하세요.
@@ -371,12 +371,12 @@ export default function App() {
                 <LinkButton href="https://www.google.com/maps/search/여의도한강공원" icon="📍">구글 지도</LinkButton>
               </div>
               <Accordion title="📍 입장 및 행사 안내 (필독)">
-                <strong style={{ color:"rgba(255,255,255,.55)" }}>입장 프로세스</strong><br/>
+                <strong style={{ color:"rgba(255,255,255,.9)" }}>입장 프로세스</strong><br/>
                 1) 메인 입구 → REST AREA 안내 테이블 위치 확인<br/>
                 2) REST AREA 테이블에서 예약 확인(인증)<br/>
                 3) 예약 인증 표식 수령 → 원하는 REST 구역 대기<br/>
                 4) 좌석에 표식 비치 후 프로그램 이용<br/><br/>
-                <strong style={{ color:"rgba(255,255,255,.55)" }}>유의사항</strong><br/>
+                <strong style={{ color:"rgba(255,255,255,.9)" }}>유의사항</strong><br/>
                 • 시작 10분 전부터 입장, 시작 후 10분 초과 시 자동 노쇼 처리<br/>
                 • REST 구역별 좌석 수 상이, 선착순 운영<br/>
                 • 기본 이용 시간 40분 / 마지막 회차 1시간<br/>
@@ -390,11 +390,11 @@ export default function App() {
                 <Tag variant="스탬프랠리">스탬프랠리</Tag><Tag variant="사전예약">사전예약</Tag>
               </div>
               <h3 style={{ fontSize:19,fontWeight:700,color:"#fff",marginBottom:6 }}>3. DDP 아미 마당</h3>
-              <div style={{ display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 14px",fontSize:13,color:"rgba(255,255,255,.5)",marginBottom:14,lineHeight:1.8 }}>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>행사 기간</span><span>2026.04.06 (월) ~ 04.12 (일)</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>장소</span><span>DDP 전시1관</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>예약 오픈</span><span style={{ color:"#FFD666",fontWeight:600 }}>2026.04.02 (목) 15:00 KST</span>
-                <span style={{ color:"rgba(191,148,228,.6)" }}>비고</span><span>사전 예약 + 현장 예약 모두 가능</span>
+              <div style={{ display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 14px",fontSize:13,color:"rgba(255,255,255,.92)",marginBottom:14,lineHeight:1.8 }}>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>행사 기간</span><span>2026.04.06 (월) ~ 04.12 (일)</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>장소</span><span>DDP 전시1관</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>예약 오픈</span><span style={{ color:"#FFD666",fontWeight:600 }}>2026.04.02 (목) 15:00 KST</span>
+                <span style={{ color:"rgba(191,148,228,.85)" }}>비고</span><span>사전 예약 + 현장 예약 모두 가능</span>
               </div>
               <div style={{ background:"rgba(191,148,228,.05)",borderRadius:10,padding:"14px 16px",marginBottom:14 }}>
                 <div style={{ fontSize:12,fontWeight:600,color:"rgba(191,148,228,.8)",marginBottom:8 }}>⏰ DDP 아미 마당 예약 오픈까지</div>
@@ -404,7 +404,7 @@ export default function App() {
                 <LinkButton href="https://map.naver.com/p/search/DDP" icon="📍">네이버 지도</LinkButton>
                 <LinkButton href="https://www.google.com/maps/search/DDP서울" icon="📍">구글 지도</LinkButton>
               </div>
-              <div style={{ fontSize:11,color:"rgba(255,255,255,.3)",marginTop:10,lineHeight:1.6 }}>
+              <div style={{ fontSize:11,color:"rgba(255,255,255,.92)",marginTop:10,lineHeight:1.6 }}>
                 ※ 운영 시간 추후 업데이트 예정<br/>
                 ※ 입장 안내·행사 안내는 2026.04.01까지 추가 공지 예정
               </div>
@@ -441,7 +441,7 @@ export default function App() {
               <div style={{ fontSize:24,marginBottom:8 }}>{item.icon}</div>
               <div style={{ fontFamily:"'Space Mono',monospace",fontSize:11,color:"#BF94E4",letterSpacing:"1px",marginBottom:4 }}>{item.date} · {item.time} KST</div>
               <div style={{ fontSize:15,fontWeight:600,color:"#fff",marginBottom:4 }}>{item.title}</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.38)",lineHeight:1.5 }}>{item.desc}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.9)",lineHeight:1.5 }}>{item.desc}</div>
             </Card>
           ))}
         </div>
@@ -460,8 +460,8 @@ export default function App() {
               <Tag variant="스탬프랠리">스탬프랠리</Tag>
               <h3 style={{ fontFamily:"'Playfair Display',serif",fontSize:20,fontWeight:700,color:"#fff",marginTop:12,marginBottom:5,lineHeight:1.4,whiteSpace:"pre-line" }}>{s.title}</h3>
               {s.extra && <div style={{ fontSize:12,color:"#BF94E4",fontWeight:500,marginBottom:8 }}>{s.extra}</div>}
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.5)",marginBottom:3 }}><span style={{ color:"rgba(191,148,228,.55)",marginRight:8 }}>일정</span>{s.date}</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.5)" }}><span style={{ color:"rgba(191,148,228,.55)",marginRight:8 }}>장소</span>{s.loc}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.92)",marginBottom:3 }}><span style={{ color:"rgba(191,148,228,.9)",marginRight:8 }}>일정</span>{s.date}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.92)" }}><span style={{ color:"rgba(191,148,228,.9)",marginRight:8 }}>장소</span>{s.loc}</div>
               <LinkButton href={s.mapUrl} icon="📍">지도 보기</LinkButton>
             </Card>
           ))}
@@ -479,10 +479,10 @@ export default function App() {
                   <div style={{ fontSize:13,fontWeight:600,color:"#fff",marginBottom:3,display:"flex",alignItems:"center",flexWrap:"wrap",gap:5 }}>
                     {lm.name}{lm.stamp && <Tag variant="스탬프랠리">스탬프랠리</Tag>}{lm.reserve && <Tag variant="사전예약">사전예약</Tag>}
                   </div>
-                  <div style={{ fontSize:11,color:"rgba(255,255,255,.32)" }}>{lm.note}</div>
+                  <div style={{ fontSize:11,color:"rgba(255,255,255,.9)" }}>{lm.note}</div>
                 </div>
-                <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.7)",textAlign:"right",whiteSpace:"nowrap" }}>{lm.date}</div>
-                <div style={{ fontSize:11,color:"rgba(255,255,255,.4)",textAlign:"right",whiteSpace:"nowrap" }}>{lm.time}</div>
+                <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.9)",textAlign:"right",whiteSpace:"nowrap" }}>{lm.date}</div>
+                <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",textAlign:"right",whiteSpace:"nowrap" }}>{lm.time}</div>
               </div>
             </a>
           ))}
@@ -497,24 +497,24 @@ export default function App() {
             <Card key={i} href={p.mapUrl} style={{ border:"1px solid rgba(191,148,228,.14)" }}>
               <Tag variant="스탬프랠리">스탬프랠리</Tag>
               <h4 style={{ fontSize:15,fontWeight:600,color:"#fff",margin:"9px 0 5px" }}>{p.name}</h4>
-              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.65)",marginBottom:5 }}>{p.date}</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.42)",marginBottom:3 }}>{p.loc}</div>
-              <div style={{ fontSize:11,color:"rgba(255,255,255,.28)",fontStyle:"italic" }}>{p.note}</div>
+              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.85)",marginBottom:5 }}>{p.date}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.92)",marginBottom:3 }}>{p.loc}</div>
+              <div style={{ fontSize:11,color:"rgba(255,255,255,.92)",fontStyle:"italic" }}>{p.note}</div>
               <LinkButton href={p.mapUrl} icon="📍">지도 보기</LinkButton>
             </Card>
           ))}
         </div>
         <div style={{ marginTop:56 }}>
           <h3 style={{ textAlign:"center",fontSize:19,fontWeight:600,color:"rgba(255,255,255,.82)",marginBottom:6,fontFamily:"'Playfair Display',serif" }}>러브쿼터 특화 거리</h3>
-          <p style={{ textAlign:"center",fontSize:11,color:"rgba(191,148,228,.45)",marginBottom:24,letterSpacing:"2px" }}>LOVE QUARTERS</p>
+          <p style={{ textAlign:"center",fontSize:11,color:"rgba(191,148,228,.85)",marginBottom:24,letterSpacing:"2px" }}>LOVE QUARTERS</p>
           <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:14,maxWidth:880,margin:"0 auto" }}>
             {QUARTER_DATA.map((q,i)=>(
               <Card key={i} href={q.mapUrl} style={{ border:q.stamp?"1px solid rgba(191,148,228,.28)":"1px solid rgba(191,148,228,.08)" }}>
                 {q.stamp && <Tag variant="스탬프랠리">스탬프랠리</Tag>}
                 <h4 style={{ fontSize:14,fontWeight:600,color:"#fff",margin:q.stamp?"7px 0 4px":"0 0 4px" }}>{q.name}</h4>
-                <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.55)",marginBottom:3 }}>{q.period}</div>
-                <div style={{ fontSize:12,color:"rgba(255,255,255,.38)" }}>{q.loc}</div>
-                {q.note && <div style={{ fontSize:10,color:"rgba(255,255,255,.28)",marginTop:3 }}>{q.note}</div>}
+                <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.9)",marginBottom:3 }}>{q.period}</div>
+                <div style={{ fontSize:12,color:"rgba(255,255,255,.9)" }}>{q.loc}</div>
+                {q.note && <div style={{ fontSize:10,color:"rgba(255,255,255,.92)",marginTop:3 }}>{q.note}</div>}
                 <LinkButton href={q.mapUrl} icon="📍">지도</LinkButton>
               </Card>
             ))}
@@ -530,9 +530,9 @@ export default function App() {
             <Card key={i} style={{ border:"1px solid rgba(191,148,228,.1)" }}>
               <div style={{ marginBottom:7 }}>{ev.tags.map((t,j)=><Tag key={j} variant={t}>{t}</Tag>)}</div>
               <h4 style={{ fontSize:15,fontWeight:700,color:"#fff",marginBottom:6 }}>{ev.name}</h4>
-              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.65)",marginBottom:3 }}>{ev.date}</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.42)" }}>{ev.loc}</div>
-              {ev.note && <div style={{ fontSize:11,color:"rgba(255,255,255,.32)",marginTop:3 }}>{ev.note}</div>}
+              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.85)",marginBottom:3 }}>{ev.date}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.92)" }}>{ev.loc}</div>
+              {ev.note && <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:3 }}>{ev.note}</div>}
               <div style={{ marginTop:6,display:"flex",flexWrap:"wrap",gap:4 }}>
                 {ev.contactUrl && <LinkButton href={ev.contactUrl} icon="📷">{ev.contact}</LinkButton>}
                 {ev.mapUrl && <LinkButton href={ev.mapUrl} icon="📍">지도</LinkButton>}
@@ -545,15 +545,15 @@ export default function App() {
       {/* POP-UPS */}
       <section id="popups" style={altBg}><div style={sec}>
         <SectionTitle sub="POP-UP STORES">공식 팝업스토어</SectionTitle>
-        <p style={{ textAlign:"center",fontSize:12,color:"rgba(191,148,228,.6)",marginTop:-24,marginBottom:26,fontWeight:500 }}>두 곳 모두 사전 예약자에 한해 입장 가능</p>
+        <p style={{ textAlign:"center",fontSize:12,color:"rgba(191,148,228,.85)",marginTop:-24,marginBottom:26,fontWeight:500 }}>두 곳 모두 사전 예약자에 한해 입장 가능</p>
         <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:20,maxWidth:780,margin:"0 auto" }}>
           {POPUP_DATA.map((p,i)=>(
             <Card key={i} href={p.mapUrl} style={{ background:"linear-gradient(135deg,rgba(191,148,228,.06),rgba(15,15,28,.9))",border:"1px solid rgba(191,148,228,.2)" }}>
               <Tag variant="사전예약">사전예약</Tag>
               <h4 style={{ fontFamily:"'Playfair Display',serif",fontSize:17,fontWeight:700,color:"#fff",marginTop:10,marginBottom:2 }}>{p.name}</h4>
               <div style={{ fontSize:12,color:"#BF94E4",fontWeight:500,marginBottom:10 }}>{p.sub}</div>
-              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(255,255,255,.45)" }}>{p.date}</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.38)",marginTop:3 }}>{p.loc}</div>
+              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(255,255,255,.92)" }}>{p.date}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.9)",marginTop:3 }}>{p.loc}</div>
               <LinkButton href={p.mapUrl} icon="📍">지도 보기</LinkButton>
             </Card>
           ))}
@@ -567,8 +567,8 @@ export default function App() {
           {FNB_DATA.map((f,i)=>(
             <Card key={i} href={f.contactUrl} style={{ border:"1px solid rgba(191,148,228,.08)" }}>
               <h4 style={{ fontSize:14,fontWeight:700,color:"#fff",marginBottom:5 }}>{f.name}</h4>
-              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.6)",marginBottom:3 }}>{f.period}</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.38)" }}>{f.loc}</div>
+              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.85)",marginBottom:3 }}>{f.period}</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.9)" }}>{f.loc}</div>
               {f.contact && <LinkButton href={f.contactUrl} icon="📷">{f.contact}</LinkButton>}
             </Card>
           ))}
@@ -579,8 +579,8 @@ export default function App() {
             {FINANCE_DATA.map((f,i)=>(
               <Card key={i} style={{ border:"1px solid rgba(191,148,228,.08)" }}>
                 <h4 style={{ fontSize:13,fontWeight:600,color:"#fff",marginBottom:5 }}>{f.name}</h4>
-                <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.55)",marginBottom:5 }}>{f.period}</div>
-                <div style={{ fontSize:12,color:"rgba(255,255,255,.38)",lineHeight:1.6 }}>{f.desc}</div>
+                <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.9)",marginBottom:5 }}>{f.period}</div>
+                <div style={{ fontSize:12,color:"rgba(255,255,255,.9)",lineHeight:1.6 }}>{f.desc}</div>
               </Card>
             ))}
           </div>
@@ -594,19 +594,19 @@ export default function App() {
           <Card style={{ border:"1px solid rgba(191,148,228,.14)" }}>
             <div style={{ fontSize:26,marginBottom:8 }}>🚕</div>
             <h4 style={{ fontSize:15,fontWeight:600,color:"#fff",marginBottom:4 }}>카카오 T & k.ride</h4>
-            <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.65)",marginBottom:8 }}>03.20~04.19</div>
-            <div style={{ fontSize:12,color:"rgba(255,255,255,.45)",lineHeight:1.7 }}>
+            <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.85)",marginBottom:8 }}>03.20~04.19</div>
+            <div style={{ fontSize:12,color:"rgba(255,255,255,.92)",lineHeight:1.7 }}>
               외국인 전용 택시 앱에서<br/>할인 코드 <span style={{ color:"#BF94E4",fontWeight:700,fontFamily:"'Space Mono',monospace",background:"rgba(191,148,228,.08)",padding:"2px 7px",borderRadius:4 }}>BTSKRIDE</span>
             </div>
-            <div style={{ fontSize:10,color:"rgba(255,255,255,.3)",marginTop:6 }}>k.ride 앱 → My → COUPONS → 코드 입력</div>
+            <div style={{ fontSize:10,color:"rgba(255,255,255,.92)",marginTop:6 }}>k.ride 앱 → My → COUPONS → 코드 입력</div>
           </Card>
           <Card href="https://map.naver.com/p/search/광화문매표소" style={{ border:"1px solid rgba(191,148,228,.14)" }}>
             <div style={{ fontSize:26,marginBottom:8 }}>🚌</div>
             <h4 style={{ fontSize:15,fontWeight:600,color:"#fff",marginBottom:4 }}>서울시티투어버스 | 타이거버스</h4>
             <Tag variant="예매필수">예매필수</Tag>
-            <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.65)",marginTop:6,marginBottom:6 }}>03.22~04.19</div>
-            <div style={{ fontSize:12,color:"rgba(255,255,255,.45)",lineHeight:1.7 }}>종로구/중구 (북촌·서촌 중심)<br/>광화문 매표소 (중구 태평로1가 68-2)</div>
-            <div style={{ fontSize:10,color:"rgba(255,255,255,.3)",marginTop:5 }}>📞 02-777-6090</div>
+            <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.85)",marginTop:6,marginBottom:6 }}>03.22~04.19</div>
+            <div style={{ fontSize:12,color:"rgba(255,255,255,.92)",lineHeight:1.7 }}>종로구/중구 (북촌·서촌 중심)<br/>광화문 매표소 (중구 태평로1가 68-2)</div>
+            <div style={{ fontSize:10,color:"rgba(255,255,255,.92)",marginTop:5 }}>📞 02-777-6090</div>
             <LinkButton href="https://map.naver.com/p/search/광화문매표소" icon="📍">매표소 위치</LinkButton>
           </Card>
         </div>
@@ -615,15 +615,15 @@ export default function App() {
       {/* STAYS */}
       <section id="stays" style={sec}>
         <SectionTitle sub="THEMED STAYS">오프라인 테마 스테이</SectionTitle>
-        <p style={{ textAlign:"center",fontSize:11,color:"rgba(255,255,255,.3)",marginTop:-24,marginBottom:24 }}>호텔 예약 후 이용 가능 · 각 호텔별 특별 F&B 협업</p>
+        <p style={{ textAlign:"center",fontSize:11,color:"rgba(255,255,255,.92)",marginTop:-24,marginBottom:24 }}>호텔 예약 후 이용 가능 · 각 호텔별 특별 F&B 협업</p>
         <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:14,maxWidth:880,margin:"0 auto" }}>
           {STAY_DATA.map((h,i)=>(
             <Card key={i} href={h.contactUrl} style={{ border:"1px solid rgba(191,148,228,.1)" }}>
               <h4 style={{ fontSize:14,fontWeight:600,color:"#fff",marginBottom:5 }}>{h.name}</h4>
-              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.55)",marginBottom:5 }}>{h.date}</div>
-              <div style={{ fontSize:11,color:"rgba(255,255,255,.32)",lineHeight:1.5 }}>{h.note}</div>
+              <div style={{ fontFamily:"'Space Mono',monospace",fontSize:10,color:"rgba(191,148,228,.9)",marginBottom:5 }}>{h.date}</div>
+              <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",lineHeight:1.5 }}>{h.note}</div>
               <LinkButton href={h.contactUrl} icon="📷">{h.contact}</LinkButton>
-              {h.phone && <div style={{ fontSize:10,color:"rgba(255,255,255,.25)",marginTop:5 }}>📞 {h.phone}</div>}
+              {h.phone && <div style={{ fontSize:10,color:"rgba(255,255,255,.92)",marginTop:5 }}>📞 {h.phone}</div>}
             </Card>
           ))}
         </div>
@@ -632,8 +632,8 @@ export default function App() {
       {/* NOTICE */}
       <section style={{ padding:"50px clamp(16px,4vw,40px)",maxWidth:780,margin:"0 auto" }}>
         <div style={{ background:"rgba(191,148,228,.03)",border:"1px solid rgba(191,148,228,.08)",borderRadius:14,padding:"24px 22px" }}>
-          <h4 style={{ fontSize:13,fontWeight:600,color:"rgba(191,148,228,.7)",marginBottom:10 }}>유의사항</h4>
-          <div style={{ fontSize:11,color:"rgba(255,255,255,.3)",lineHeight:2 }}>
+          <h4 style={{ fontSize:13,fontWeight:600,color:"rgba(191,148,228,.9)",marginBottom:10 }}>유의사항</h4>
+          <div style={{ fontSize:11,color:"rgba(255,255,255,.92)",lineHeight:2 }}>
             ※ 모든 프로그램은 현장 상황 및 기상 여건에 따라 변경될 수 있습니다.<br/>
             ※ 일부 프로그램은 사전 예약 또는 예매를 통해 진행됩니다.<br/>
             ※ 일부 프로그램은 인원 제한이 있으며, 안전 규정에 따라 운영됩니다.<br/>
@@ -649,11 +649,11 @@ export default function App() {
         </div>
         <div style={{ fontFamily:"'Playfair Display',serif",fontSize:24,fontWeight:900,background:"linear-gradient(135deg,rgba(191,148,228,.3),rgba(191,148,228,.1))",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",marginBottom:12 }}>ARIRANG — SEOUL</div>
         <div style={{ display:"flex",gap:14,justifyContent:"center",marginBottom:16,flexWrap:"wrap" }}>
-          <a href="https://weverse.io/bts/notice/34163" target="_blank" rel="noopener noreferrer" style={{ fontSize:11,color:"rgba(191,148,228,.55)",textDecoration:"none" }}>사전 예약 공지</a>
+          <a href="https://weverse.io/bts/notice/34163" target="_blank" rel="noopener noreferrer" style={{ fontSize:11,color:"rgba(191,148,228,.9)",textDecoration:"none" }}>사전 예약 공지</a>
           <span style={{ color:"rgba(191,148,228,.15)" }}>|</span>
-          <a href="https://weverse.io/bts/notice/34162" target="_blank" rel="noopener noreferrer" style={{ fontSize:11,color:"rgba(191,148,228,.55)",textDecoration:"none" }}>상세 공지</a>
+          <a href="https://weverse.io/bts/notice/34162" target="_blank" rel="noopener noreferrer" style={{ fontSize:11,color:"rgba(191,148,228,.9)",textDecoration:"none" }}>상세 공지</a>
           <span style={{ color:"rgba(191,148,228,.15)" }}>|</span>
-          <a href="https://weverse.io/bts" target="_blank" rel="noopener noreferrer" style={{ fontSize:11,color:"rgba(191,148,228,.55)",textDecoration:"none" }}>BTS Weverse</a>
+          <a href="https://weverse.io/bts" target="_blank" rel="noopener noreferrer" style={{ fontSize:11,color:"rgba(191,148,228,.9)",textDecoration:"none" }}>BTS Weverse</a>
         </div>
         <div style={{ fontSize:10,color:"rgba(255,255,255,.1)",letterSpacing:"2px" }}>BTS THE CITY ARIRANG SEOUL © 2026</div>
       </footer>
